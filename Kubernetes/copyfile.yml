@@ -1,0 +1,8 @@
+- hosts: kubernetes
+  # become: true
+  user: root
+  tasks:
+    - name: copy war in to k8s
+      copy:
+         src: /etc/ansible/webapp.war
+         dest: /root
