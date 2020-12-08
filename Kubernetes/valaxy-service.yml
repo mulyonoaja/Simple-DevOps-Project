@@ -1,14 +1,13 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: valaxy-service
-  labels:
-    app: valaxy-devops-project
+  name: tomcat-service
 spec:
-  selector:
-    app: valaxy-devops-project
   type: LoadBalancer
+  selector:
+    app: tomcat
   ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 31200
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
