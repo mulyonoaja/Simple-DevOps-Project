@@ -1,0 +1,9 @@
+---
+- name: delete service for deployment
+  hosts: master
+  # become: true
+  user: root
+
+  tasks:
+  - name: delete a service
+    command: kubectl delete -f valaxy-service.yml
