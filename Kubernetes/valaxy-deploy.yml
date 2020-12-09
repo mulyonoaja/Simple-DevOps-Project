@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: tomcat-container
-        image: tomcat:8.0
+        image: mulyonoaja/simple-devops-image
         ports:
         - containerPort: 8080
         resources:
