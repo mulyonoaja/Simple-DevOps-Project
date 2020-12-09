@@ -1,0 +1,9 @@
+---
+- name: delete cluster k8s in kops
+  hosts: master
+  # become: true
+  user: root
+
+  tasks:
+  - name: delete kops cluster
+    command: kops delete cluster --state s3://k8s.hafishop.com --name k8s.hafishop.com --yes
