@@ -1,0 +1,9 @@
+---
+- name: Create pods using deployment
+  hosts: master
+  # become: true
+  user: root
+
+  tasks:
+  - name: delete a deployment
+    command: kubectl delete -f valaxy-deploy.yml
