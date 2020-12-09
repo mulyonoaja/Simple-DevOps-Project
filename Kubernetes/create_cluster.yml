@@ -1,0 +1,17 @@
+---
+- name: create cluster k8s by kops
+  hosts: master
+  become: true
+  user: root
+
+  tasks:
+  - name: create bucket s3
+    command: aws s3 mb s3://k8s.hafishop.com
+  - name: export kops
+    shell: export KOPS_STATE_STORE=s3://k8s.hafishop.com
+  - name: create cluster
+    shell: kops create cluster --state s3://k8s.hafishop.com --cloud aws --zones ap-southeast-1a --name k8s.hafishop.com --dns-zone hafishop.com --dns private
+  - name: update kops cluster
+    shell: kops update cluster --state s3://k8s.hafishop.com --name k8s.hafishop.com --yes
+  - name: validate cluster
+    shell: kops validate cluster
